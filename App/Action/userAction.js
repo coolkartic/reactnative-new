@@ -1,9 +1,7 @@
 import React from 'react';
 import * as types from '../constant/ActionType';
 import AsyncStorage from '@react-native-community/async-storage';
-import { createStackNavigator } from '@react-navigation/stack';
 import { apiClient } from "../apiClient";
-
 
 /**
 * Sign in.
@@ -11,7 +9,6 @@ import { apiClient } from "../apiClient";
 * @param {string} password
 */
 
-const Stack = createStackNavigator();
 /** Login auth **/
 export function login(username, password) {
   return dispatch => {
@@ -24,8 +21,7 @@ export function login(username, password) {
       })
       .catch(error => {
         console.log(error, 'error');
-        alert('fail');
-       
+        alert(error);
       });
   };
 }
@@ -34,10 +30,8 @@ export function login(username, password) {
 * Sign out.
 */
 export const logout =  () => {
-  
   // direct/sync call
   AsyncStorage.clear()
- 
   return {
       type: types.LOGOUT
   }

@@ -29,33 +29,26 @@ class HomePage extends React.Component {
   render() {
     const { doLogout,fullName,userStored} = this.props
 
-    // show only loading indicator if loading state is true
-   
-
-
-    // display login screen
     return (
       <SafeAreaView style={{flex: 1}}>
-       <View style={{alignItems:'center',alignContent:'center',paddingTop:40}}>
-
-<Text style={{fontWeight:'bold',fontSize:20,color:'dodgerblue'}}>DASHBOARD {fullName}!</Text>
-<Image
-style={{ 
-  width: 190,
-  height: 210,
-  marginBottom:40}}
-source={require('../../assets/wel.jpg')}
-/> 
-<Button
-  onPress={() => {
-    doLogout()
-  }}
->
-  Logout
-</Button>
-</View>
+        <View style={{alignItems:'center',alignContent:'center',paddingTop:40}}>
+          <Text style={{fontWeight:'bold',fontSize:20,color:'dodgerblue'}}>DASHBOARD {fullName}!</Text>
+          <Image
+            style={{ 
+              width: 190,
+              height: 210,
+              marginBottom:40}}
+            source={require('../../assets/wel.jpg')}
+          /> 
+          <Button
+            onPress={() => {
+              doLogout()
+            }}
+            >
+            Logout
+          </Button>
+        </View>
     </SafeAreaView>
-    
     )
   }
 }
@@ -100,16 +93,13 @@ export const Home = connect(
   
   // inject states to props
   (state= States) => ({
-    
     loggedIn: state.user.loggedIn,
     fullName: state.user.fullName,
     userStored:state.user.userStored
-
   }),
 
   // inject actions to props
   dispatch => ({
-     
     doLogout: () => dispatch(actions.user.logout())
   })
 )(HomePage)

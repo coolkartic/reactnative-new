@@ -46,38 +46,38 @@ class LoginPage extends React.Component {
       <SafeAreaView style={{flex: 1}}>
       <View style={styles.container}>
         <View>
-        <Image
-          style={styles.logo}
-         source={require('../../assets/tnlogo.png')}
-        /> 
+          <Image
+            style={styles.logo}
+            source={require('../../assets/tnlogo.png')}
+          /> 
         </View>
         <Text style={{color:'green',fontWeight:'bold',fontSize:20, alignItems:'center',marginBottom:10}}>EMIS LOGIN</Text>
     
-      <View style={styles.inputView} >
-         <TextInput  
-          style={styles.inputText}
-          placeholder="Email..." 
-          placeholderTextColor="white"
-          onChangeText={username => this.setState({ username })}
-          value={this.state.username}/>
+        <View style={styles.inputView} >
+          <TextInput  
+            style={styles.inputText}
+            placeholder="Email..." 
+            placeholderTextColor="white"
+            onChangeText={username => this.setState({ username })}
+            value={this.state.username}/>
+        </View>
+        <View style={styles.inputView} >
+          <TextInput  
+            secureTextEntry
+            style={styles.inputText}
+            placeholder="Password..." 
+            placeholderTextColor="white"
+            onChangeText={password => this.setState({ password })}
+            value={this.state.password}/>
+        </View>
+        <TouchableOpacity>
+          <Text style={styles.forgot}>Forgot Password?</Text>
+        </TouchableOpacity>
+        <Button   onPress={() => {
+            doLogin(this.state.username, this.state.password)
+          }}>LOGIN
+        </Button>
       </View>
-      <View style={styles.inputView} >
-        <TextInput  
-          secureTextEntry
-          style={styles.inputText}
-          placeholder="Password..." 
-          placeholderTextColor="white"
-          onChangeText={password => this.setState({ password })}
-          value={this.state.password}/>
-      </View>
-      <TouchableOpacity>
-        <Text style={styles.forgot}>Forgot Password?</Text>
-      </TouchableOpacity>
-      <Button   onPress={() => {
-          doLogin(this.state.username, this.state.password)
-        }}>LOGIN
-      </Button>
-    </View>
     </SafeAreaView>
     )
   }
@@ -113,7 +113,6 @@ const styles = StyleSheet.create({
     fontSize:11,
     fontWeight:'bold'
   },
- 
 });
 
 /**
